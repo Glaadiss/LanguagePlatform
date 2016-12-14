@@ -11,7 +11,7 @@ var progress = ()=>{
 var buttons = (
     <div className="btn-group">
         <button className="btn btn-success" id="learnIt"> Learn it! </button>
-        <button className="btn btn-danger"> Destroy!</button>
+        <button className="btn btn-danger" id="stop"> Destroy!</button>
         <button className="btn btn-info"> Update!</button>
     </div>
 );
@@ -33,16 +33,21 @@ var render = ()=> {
 }
 render();
 
-var myFync = ()=>{
+var start = ()=>{
     setTimeout(function(){
-        if(k<100) myFync() ;
+        if(k<100) start() ;
         k++;
         render();
     }, 300);
 }
+
 document.getElementById('learnIt').addEventListener('click', function(){
-    myFync();
+    start();
 });
+
+document.getElementById('stop').addEventListener('click', function(){
+    stop();
+})
 
 
 
